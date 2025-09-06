@@ -718,153 +718,107 @@ body {
    Responsive Design
    ================================ */
 @media (max-width: 768px) {
-    .sidebar {
-        width: 100%;
-        max-width: 400px;
-    }
-    
-    .toolbar {
-        padding: 0.75rem;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 0.75rem;
-        justify-content: center;
-    }
-    
-    .toolbar-left,
-    .toolbar-center,
-    .toolbar-right {
-        flex: 0 0 100%;
-        display: flex;
-        justify-content: center;
-        gap: 0.5rem;
+    /* Enable smooth scrolling */
+    html, body {
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior-y: contain;
     }
 
-    .btn {
-        padding: 0.6rem 1rem;
-        font-size: 0.9rem;
-        min-width: 80px;
-        justify-content: center;
+    /* Make content scrollable */
+    .app {
+        height: auto;
+        min-height: 100vh;
+        padding-bottom: 180px; /* Space for fixed toolbar */
+        overflow-y: auto;
     }
 
     .editor-container {
+        position: relative;
+        height: auto;
+        min-height: 60vh;
         padding: 1rem;
+        overflow-y: visible;
     }
-    
-    .editor {
-        padding: 1rem;
-        min-height: 50vh;
-        font-size: 16px;
-    }
-    
-    .timer {
-        top: 1rem;
-        right: 1rem;
-        font-size: 0.875rem;
-    }
-    
-    .word-count {
-        bottom: 1rem;
-        left: 1rem;
-    }
-    
-    .modal-content {
-        width: 95vw;
-        margin: 2rem;
-    }
-    
-    .notifications {
-        top: 1rem;
-        right: 1rem;
-        left: 1rem;
-        max-width: none;
-    }
-}
 
-/* Extra small devices */
-@media (max-width: 480px) {
+    .editor {
+        height: auto;
+        min-height: 50vh;
+        max-height: none;
+        margin-bottom: 2rem;
+        overflow-y: visible;
+    }
+
+    /* Keep toolbar fixed at bottom */
     .toolbar {
-        padding: 0.5rem;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background: var(--bg-secondary);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Adjust toolbar for mobile */
+    .toolbar {
+        flex-wrap: wrap;
+        padding: 0.75rem;
         gap: 0.5rem;
     }
 
-    .btn {
-        padding: 0.5rem 0.75rem;
-        font-size: 0.8rem;
-        min-width: 70px;
+    .toolbar-left {
+        order: 1;
+        flex: 1;
     }
 
-    /* Stack certain button groups vertically */
     .toolbar-center {
-        flex-direction: column;
-        width: 100%;
+        order: 2;
+        flex: 0;
     }
 
-    .toolbar-center .btn {
+    .toolbar-right {
+        order: 3;
         width: 100%;
-        max-width: none;
+        justify-content: space-between;
     }
 
-    /* Keep save buttons side by side but make them larger */
+    /* Ensure save buttons are visible */
     .save-group {
-        flex-direction: row;
+        display: flex;
         width: 100%;
+        gap: 0.5rem;
     }
 
     .save-group .btn {
         flex: 1;
-        max-width: none;
+        padding: 0.75rem 0.5rem;
+        justify-content: center;
+        font-size: 0.8rem;
     }
 
-    /* Add some spacing between button groups */
-    .toolbar-left,
-    .toolbar-center,
-    .toolbar-right {
-        margin-bottom: 0.25rem;
-        width: 100%;
+    .btn svg {
+        width: 14px;
+        height: 14px;
     }
 
-    /* Make action buttons more prominent */
-    .btn-primary,
-    .btn-success,
-    .btn-danger {
-        width: 100%;
-        margin: 0.25rem 0;
-    }
-}
+    /* Hide text on smaller screens for non-save buttons */
+    @media (max-width: 480px) {
+        .toolbar-left .btn span,
+        .toolbar-center .btn span {
+            display: none;
+        }
 
-/* Add touch-friendly improvements */
-@media (hover: none) and (pointer: coarse) {
-    .btn {
-        min-height: 44px; /* Minimum touch target size */
-    }
+        .toolbar-left .btn,
+        .toolbar-center .btn {
+            padding: 0.5rem;
+        }
 
-    /* Increase spacing between touch targets */
-    .toolbar {
-        gap: 0.75rem;
-    }
-
-    /* Remove hover effects on touch devices */
-    .btn:hover {
-        transform: none;
-    }
-
-    /* Add active state for touch feedback */
-    .btn:active {
-        transform: scale(0.98);
-        opacity: 0.9;
-    }
-}
-
-/* Tablet Optimization */
-@media (min-width: 769px) and (max-width: 1024px) {
-    .editor {
-        max-width: 90%;
-        font-size: 17px;
-    }
-
-    .sidebar {
-        width: 40%;
+        .save-group .btn span {
+            display: inline;
+        }
     }
 }
 
