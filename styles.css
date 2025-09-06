@@ -7,44 +7,45 @@
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     --border-radius: 8px;
     --border-radius-lg: 12px;
+    --paper-texture: url("data:image/png;base64,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");
 }
 
 /* Light Theme */
 .theme-light {
-    --bg-primary: #ffffff;
-    --bg-secondary: #f8fafc;
-    --bg-tertiary: #f1f5f9;
-    --text-primary: #1e293b;
-    --text-secondary: #64748b;
-    --text-muted: #94a3b8;
-    --border: #e2e8f0;
-    --border-hover: #cbd5e1;
-    --accent: #3b82f6;
-    --accent-hover: #2563eb;
-    --success: #10b981;
-    --success-hover: #059669;
-    --warning: #f59e0b;
-    --danger: #ef4444;
-    --danger-hover: #dc2626;
+    --bg-primary: #f5ebe0;  /* Light cream color */
+    --bg-secondary: #e3d5ca; /* Lighter coffee color */
+    --bg-tertiary: #d5bdaf; /* Medium coffee color */
+    --text-primary: #2d1810; /* Dark coffee brown */
+    --text-secondary: #4a3628; /* Medium brown */
+    --text-muted: #6b4f3d; /* Light brown */
+    --border: #b08968; /* Coffee border */
+    --border-hover: #906b4f; /* Darker coffee border */
+    --accent: #6b4423; /* Rich coffee brown */
+    --accent-hover: #523018; /* Darker coffee brown */
+    --success: #567d46; /* Forest green */
+    --success-hover: #45632e; /* Darker green */
+    --warning: #b87d3b; /* Caramel */
+    --danger: #a34836; /* Reddish brown */
+    --danger-hover: #7a3528; /* Darker red brown */
 }
 
 /* Dark Theme */
 .theme-dark {
-    --bg-primary: #0f172a;
-    --bg-secondary: #1e293b;
-    --bg-tertiary: #334155;
-    --text-primary: #f1f5f9;
-    --text-secondary: #cbd5e1;
-    --text-muted: #64748b;
-    --border: #334155;
-    --border-hover: #475569;
-    --accent: #60a5fa;
-    --accent-hover: #3b82f6;
-    --success: #34d399;
-    --success-hover: #10b981;
-    --warning: #fbbf24;
-    --danger: #f87171;
-    --danger-hover: #ef4444;
+    --bg-primary: #2d1810; /* Dark coffee */
+    --bg-secondary: #3c2317; /* Slightly lighter */
+    --bg-tertiary: #4a3628; /* Medium brown */
+    --text-primary: #e3d5ca; /* Light cream */
+    --text-secondary: #d5bdaf; /* Light coffee */
+    --text-muted: #b08968; /* Medium coffee */
+    --border: #6b4423; /* Rich coffee */
+    --border-hover: #8b5e3c; /* Lighter coffee */
+    --accent: #b87d3b; /* Caramel */
+    --accent-hover: #cc9152; /* Lighter caramel */
+    --success: #567d46; /* Forest green */
+    --success-hover: #6b9958; /* Lighter green */
+    --warning: #d4a373; /* Light caramel */
+    --danger: #a34836; /* Reddish brown */
+    --danger-hover: #bf574a; /* Lighter red brown */
 }
 
 /* ================================
@@ -63,6 +64,30 @@ body {
     transition: var(--transition);
     overflow: hidden;
     height: 100vh;
+    background-image: var(--paper-texture);
+    background-repeat: repeat;
+}
+
+.editor {
+    width: 100%;
+    max-width: 800px;
+    min-height: 60vh;
+    background: rgba(245, 235, 224, 0.9); /* Slightly transparent cream */
+    border: none;
+    outline: none;
+    resize: none;
+    font-size: 18px;
+    line-height: 1.6;
+    font-family: inherit;
+    color: var(--text-primary);
+    padding: 2rem;
+    border-radius: var(--border-radius-lg);
+    transition: var(--transition);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: 'Lato', Georgia, serif;
+    letter-spacing: 0.3px;
+    line-height: 1.8;
 }
 
 /* ================================
@@ -82,23 +107,6 @@ body {
     justify-content: center;
     position: relative;
     padding: 2rem;
-}
-
-.editor {
-    width: 100%;
-    max-width: 800px;
-    min-height: 60vh;
-    background: transparent;
-    border: none;
-    outline: none;
-    resize: none;
-    font-size: 18px;
-    line-height: 1.6;
-    font-family: inherit;
-    color: var(--text-primary);
-    padding: 2rem;
-    border-radius: var(--border-radius-lg);
-    transition: var(--transition);
 }
 
 .editor:focus {
@@ -190,6 +198,12 @@ body {
     transition: var(--transition);
     text-decoration: none;
     white-space: nowrap;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .btn:hover {
@@ -492,6 +506,9 @@ body {
     max-width: 90vw;
     max-height: 80vh;
     overflow-y: auto;
+    background-image: var(--paper-texture);
+    background-repeat: repeat;
+    border: 1px solid var(--border);
 }
 
 .modal-header {
@@ -707,27 +724,29 @@ body {
     }
     
     .toolbar {
-        padding: 1rem;
+        padding: 0.75rem;
+        flex-direction: row;
         flex-wrap: wrap;
-        gap: 0.5rem;
+        gap: 0.75rem;
+        justify-content: center;
     }
     
     .toolbar-left,
     .toolbar-center,
     .toolbar-right {
-        gap: 0.25rem;
+        flex: 0 0 100%;
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
     }
-    
+
     .btn {
-        padding: 0.5rem;
-        font-size: 0.8rem;
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+        min-width: 80px;
+        justify-content: center;
     }
-    
-    .btn svg {
-        width: 14px;
-        height: 14px;
-    }
-    
+
     .editor-container {
         padding: 1rem;
     }
@@ -762,47 +781,131 @@ body {
     }
 }
 
+/* Extra small devices */
 @media (max-width: 480px) {
-    .save-group {
-        flex-direction: column;
-    }
-    
-    .github-actions {
-        flex-direction: column;
-    }
-    
     .toolbar {
-        flex-direction: column;
-        align-items: stretch;
+        padding: 0.5rem;
+        gap: 0.5rem;
     }
-    
+
+    .btn {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.8rem;
+        min-width: 70px;
+    }
+
+    /* Stack certain button groups vertically */
+    .toolbar-center {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .toolbar-center .btn {
+        width: 100%;
+        max-width: none;
+    }
+
+    /* Keep save buttons side by side but make them larger */
+    .save-group {
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .save-group .btn {
+        flex: 1;
+        max-width: none;
+    }
+
+    /* Add some spacing between button groups */
     .toolbar-left,
     .toolbar-center,
     .toolbar-right {
-        justify-content: center;
+        margin-bottom: 0.25rem;
+        width: 100%;
+    }
+
+    /* Make action buttons more prominent */
+    .btn-primary,
+    .btn-success,
+    .btn-danger {
+        width: 100%;
+        margin: 0.25rem 0;
     }
 }
 
-/* ================================
-   Fullscreen Mode
-   ================================ */
-.app.fullscreen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 9999;
-    background: var(--bg-primary);
+/* Add touch-friendly improvements */
+@media (hover: none) and (pointer: coarse) {
+    .btn {
+        min-height: 44px; /* Minimum touch target size */
+    }
+
+    /* Increase spacing between touch targets */
+    .toolbar {
+        gap: 0.75rem;
+    }
+
+    /* Remove hover effects on touch devices */
+    .btn:hover {
+        transform: none;
+    }
+
+    /* Add active state for touch feedback */
+    .btn:active {
+        transform: scale(0.98);
+        opacity: 0.9;
+    }
 }
 
-.app.fullscreen .toolbar {
-    opacity: 0;
-    transform: translateY(100%);
-    transition: var(--transition);
+/* Tablet Optimization */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .editor {
+        max-width: 90%;
+        font-size: 17px;
+    }
+
+    .sidebar {
+        width: 40%;
+    }
 }
 
-.app.fullscreen:hover .toolbar {
-    opacity: 1;
-    transform: translateY(0);
+/* Add smooth transitions for better UX */
+.editor,
+.btn,
+.modal,
+.sidebar {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Additional Vintage Styling */
+.btn {
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.modal-content {
+    background-image: var(--paper-texture);
+    background-repeat: repeat;
+    border: 1px solid var(--border);
+}
+
+/* Add vintage scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-hover);
 }

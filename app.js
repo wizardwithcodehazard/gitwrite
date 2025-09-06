@@ -12,6 +12,8 @@ class GitWrite {
         this.checkOnlineStatus();
         this.restoreNote();
         this.startAutosave();
+
+        this.rainSound = new RainSound();
     }
 
     // ================================
@@ -696,6 +698,8 @@ class GitWrite {
         }, 1000);
         
         this.updateTimerDisplay();
+
+        this.rainSound.play(); // Start rain sound when timer starts
     }
 
     stopTimer() {
@@ -703,6 +707,8 @@ class GitWrite {
         clearInterval(this.timerState.interval);
         this.timer.classList.add('hidden');
         this.timer.classList.remove('warning', 'danger');
+
+        this.rainSound.stop(); // Stop rain sound when timer stops
     }
 
     updateTimerDisplay() {
