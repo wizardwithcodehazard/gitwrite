@@ -443,7 +443,6 @@ body {
 
 .sidebar-footer {
     padding: 1rem 2rem 2rem;
-    border-top: 1px solid var(--border);
 }
 
 .sync-info {
@@ -819,6 +818,49 @@ body {
         .save-group .btn span {
             display: inline;
         }
+    }
+
+    /* Mobile sidebar adjustments */
+    .sidebar {
+        width: 100%; /* Full width on mobile */
+        max-width: 100%;
+        border-left: none;
+    }
+
+    .sidebar-header {
+        padding: 1rem;
+    }
+
+    .notes-list {
+        padding: 0.75rem;
+    }
+
+    .note-item {
+        padding: 0.75rem;
+        margin-bottom: 0.75rem;
+        /* Always show actions on touch devices */
+        touch-action: manipulation;
+    }
+
+    .note-actions {
+        opacity: 1; /* Always visible on mobile */
+        margin-top: 0.75rem;
+    }
+
+    .note-actions .btn {
+        padding: 0.5rem 0.75rem; /* Larger touch targets */
+        flex: 1; /* Equal width buttons */
+    }
+
+    .sidebar-footer {
+        padding: 1rem;
+        padding-bottom: calc(1rem + env(safe-area-inset-bottom)); /* iOS safe area */
+    }
+
+    /* Improve scroll behavior */
+    .notes-list {
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior-y: contain;
     }
 }
 
