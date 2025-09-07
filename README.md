@@ -1,7 +1,8 @@
 
 # [GitWrite](https://gitwrite-info.vercel.app/)
 
-<img width="1909" height="890" alt="image" src="https://github.com/user-attachments/assets/924f26a1-e062-49d9-93d4-bcf53eaf3ef5" />
+![demo](https://github.com/user-attachments/assets/2743a0ed-e7b9-4b03-bccc-5265c9034ee5)
+
 
 GitWrite is a simple, distraction-free web app that lets you freewrite your thoughts, ideas, or code snippets — and save them **privately to your own GitHub repository**.
 
