@@ -31,6 +31,14 @@ Think of it as a brain dump:
 
 It’s a great way to break creative blocks and let your mind flow freely.
 
+---
+
+## ☕ Support Me:)
+# [A coffee?](https://buymeacoffee.com/sahilrane_)
+
+---
+
+
 ## 📜 License
 
 MIT License. Free for everyone to use, modify, and build upon.
