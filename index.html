@@ -34,7 +34,7 @@
                 id="editor" 
                 class="editor" 
                 placeholder="Begin your freewriting..."
-                spellcheck="true"
+                spellcheck="false"
             ></textarea>
             
             <!-- Timer Display -->
@@ -201,6 +201,20 @@
                         value="50"
                         onchange="gitwrite.rainSound.setVolume(this.value)"
                     >
+                </div>
+
+                <div class="setting-group">
+                    <label>Typing Sound</label>
+                    <div class="token-options"> <!-- Reusing style for layout -->
+                        <label>
+                            <input type="checkbox" id="typing-sound-enabled">
+                            Enable
+                        </label>
+                    </div>
+                </div>
+                <div class="setting-group">
+                    <label for="typing-volume">Typing Sound Volume</label>
+                    <input type="range" id="typing-volume" min="0" max="100" value="50">
                 </div>
             </div>
         </div>

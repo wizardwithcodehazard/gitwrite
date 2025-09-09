@@ -8,6 +8,7 @@ class GitWrite {
         this.initializeIndexedDB();
         this.bindEvents();
         this.loadSettings();
+        this.initializeAudio();
         this.registerServiceWorker();
         this.checkOnlineStatus();
         this.restoreNote();
@@ -50,7 +51,9 @@ class GitWrite {
             fontFamily: 'Lato',
             timerDuration: 15,
             autosaveInterval: 30,
-            theme: 'light'
+            theme: 'light',
+            typingSoundEnabled: false,
+            typingVolume: 50
         };
 
         this.github = {
@@ -66,6 +69,7 @@ class GitWrite {
         // Debounce timers
         this.autosaveTimeout = null;
         this.wordCountTimeout = null;
+        this.typingAudio = null;
         
         // Queue for offline sync
         this.syncQueue = [];
@@ -103,6 +107,19 @@ class GitWrite {
         });
     }
 
+    initializeAudio() {
+        this.rainSound = new RainSound();
+        
+        try {
+            // NOTE: You need to add a typing sound file at this path
+            this.typingAudio = new Audio('./audio/click.mp3');
+            this.typingAudio.volume = this.settings.typingVolume / 100;
+        } catch (e) {
+            console.error("Could not initialize typing sound", e);
+            this.typingAudio = null;
+        }
+    }
+
     async registerServiceWorker() {
         if ('serviceWorker' in navigator) {
             try {
@@ -125,6 +142,7 @@ class GitWrite {
         // Editor events
         this.editor.addEventListener('input', this.handleEditorInput.bind(this));
         this.editor.addEventListener('keydown', this.handleKeyboardShortcuts.bind(this));
+        this.editor.addEventListener('keydown', this.handleTyping.bind(this));
 
         // Toolbar events
         document.getElementById('new-note').addEventListener('click', this.newNote.bind(this));
@@ -146,6 +164,10 @@ class GitWrite {
         document.getElementById('timer-duration').addEventListener('change', this.updateTimerDuration.bind(this));
         document.getElementById('autosave-interval').addEventListener('change', this.updateAutosaveInterval.bind(this));
 
+        // Typing sound settings
+        document.getElementById('typing-sound-enabled').addEventListener('change', this.updateTypingSoundEnabled.bind(this));
+        document.getElementById('typing-volume').addEventListener('input', this.updateTypingVolume.bind(this));
+
         // GitHub modal events
         document.getElementById('save-github-settings').addEventListener('click', this.saveGitHubSettings.bind(this));
         document.getElementById('test-github').addEventListener('click', this.testGitHubConnection.bind(this));
@@ -166,6 +188,28 @@ class GitWrite {
         this.currentNote.content = this.editor.value;
         this.updateWordCount();
         this.scheduleAutosave();
+    }
+
+    handleTyping(e) {
+        if (!this.settings.typingSoundEnabled || !this.typingAudio) {
+            return;
+        }
+
+        // A list of keys that should not trigger the sound
+        const silentKeys = [
+            'Control', 'Meta', 'Alt', 'Shift', 'CapsLock', 'Tab', 'Escape',
+            'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight',
+            'Home', 'End', 'PageUp', 'PageDown',
+            'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12'
+        ];
+
+        if (silentKeys.includes(e.key)) {
+            return;
+        }
+
+        // To allow for rapid typing, we reset the audio and play it.
+        this.typingAudio.currentTime = 0;
+        this.typingAudio.play().catch(() => { /* Ignore autoplay errors */ });
     }
 
     updateWordCount() {
@@ -819,6 +863,13 @@ class GitWrite {
         document.getElementById('font-family').value = this.settings.fontFamily;
         document.getElementById('timer-duration').value = this.settings.timerDuration;
         document.getElementById('autosave-interval').value = this.settings.autosaveInterval;
+
+        // Apply typing sound settings
+        document.getElementById('typing-sound-enabled').checked = this.settings.typingSoundEnabled;
+        document.getElementById('typing-volume').value = this.settings.typingVolume;
+        if (this.typingAudio) {
+            this.typingAudio.volume = this.settings.typingVolume / 100;
+        }
     }
 
     updateFontSize() {
@@ -843,6 +894,20 @@ class GitWrite {
 
     updateAutosaveInterval() {
         this.settings.autosaveInterval = parseInt(document.getElementById('autosave-interval').value);
+        this.saveSettings();
+    }
+
+    updateTypingSoundEnabled() {
+        this.settings.typingSoundEnabled = document.getElementById('typing-sound-enabled').checked;
+        this.saveSettings();
+    }
+
+    updateTypingVolume() {
+        const volume = document.getElementById('typing-volume').value;
+        this.settings.typingVolume = parseInt(volume, 10);
+        if (this.typingAudio) {
+            this.typingAudio.volume = this.settings.typingVolume / 100;
+        }
         this.saveSettings();
     }
 
