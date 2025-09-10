@@ -560,8 +560,8 @@ class GitWrite {
                 sha = fileData.sha;
             }
 
-            // Create or update file
-            const content = btoa(unescape(encodeURIComponent(job.content)));
+            // Create or update file using UTF-8 safe base64 encoding
+            const content = utf8ToBase64(job.content);
             const payload = {
                 message: job.commitMessage,
                 content: content,

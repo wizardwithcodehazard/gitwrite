@@ -1,3 +1,12 @@
+// UTF-8 safe base64 encoding/decoding
+function utf8ToBase64(str) {
+    return btoa(unescape(encodeURIComponent(str)));
+}
+
+function base64ToUtf8(str) {
+    return decodeURIComponent(escape(atob(str)));
+}
+
 class GitHubService {
     constructor(token) {
         this.token = token;
@@ -25,7 +34,7 @@ class GitHubService {
                     },
                     body: JSON.stringify({
                         message,
-                        content: btoa(content),
+                        content: utf8ToBase64(content),
                         branch,
                         sha
                     })
@@ -58,6 +67,10 @@ class GitHubService {
             throw new Error('File not found');
         }
 
-        return await response.json();
+        const data = await response.json();
+        if (data.content) {
+            data.decodedContent = base64ToUtf8(data.content.replace(/\n/g, ''));
+        }
+        return data;
     }
 }
